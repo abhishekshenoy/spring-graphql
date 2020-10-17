@@ -1,0 +1,33 @@
+scalar Long
+
+type Author {
+    id: ID!
+    firstName: String!
+    lastName: String!
+}
+
+type Book {
+    id: ID!
+    title: String!
+    authors: [Author]
+}
+
+input AuthorInput {
+    id: ID!
+    firstName: String!
+    lastName: String!
+}
+
+input BookInput {
+    id: ID!
+    title: String!
+    authors: [AuthorInput]
+}
+
+type Query {
+    findBook(id:ID!):Book
+}
+
+type Mutation {
+    addBookNormal(book:BookInput):Book
+}
